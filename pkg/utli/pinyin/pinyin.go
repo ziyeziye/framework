@@ -2,7 +2,7 @@ package pinyin
 
 import (
 	"bufio"
-	"framework/pkg/utli"
+	"github.com/ziyeziye/framework/pkg/utli"
 	"io"
 	"net/http"
 	"os"

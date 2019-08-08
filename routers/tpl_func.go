@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"framework/pkg/utli"
+	"github.com/ziyeziye/framework/pkg/utli"
 	"strings"
 )
 

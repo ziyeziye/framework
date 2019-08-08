@@ -1,4 +1,4 @@
-module framework
+module github.com/ziyeziye/framework
 
 go 1.12
 

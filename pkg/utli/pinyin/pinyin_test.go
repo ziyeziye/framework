@@ -1,7 +1,7 @@
 package pinyin
 
 import (
-	"framework/pkg/utli"
+	"github.com/ziyeziye/framework/pkg/utli"
 	"testing"
 )
 

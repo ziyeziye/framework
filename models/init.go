@@ -2,9 +2,9 @@ package models
 
 import (
 	"fmt"
-	"framework/pkg/config"
-	"framework/pkg/logger"
 	"github.com/jinzhu/gorm"
+	"github.com/ziyeziye/framework/pkg/config"
+	"github.com/ziyeziye/framework/pkg/logger"
 	"log"
 )
 

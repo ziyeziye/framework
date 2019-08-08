@@ -1,10 +1,10 @@
 package request
 
 import (
-	"framework/pkg/config"
-	"framework/pkg/utli"
 	"github.com/gin-gonic/gin"
 	"github.com/openset/php2go/php"
+	"github.com/ziyeziye/framework/pkg/config"
+	"github.com/ziyeziye/framework/pkg/utli"
 )
 
 func GetParam(c *gin.Context, key, ext string) string {
