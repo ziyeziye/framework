@@ -4,23 +4,34 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func Json(c *gin.Context, maps map[string]interface{}) {
+type JsonType struct {
+	Code  int
+	Msg   string
+	State bool
+	Data  interface{}
+}
+
+func Json(c *gin.Context, jsonType JsonType) {
 	var data interface{}
 	code := SUCCESS     //200
 	msg := GetMsg(code) //ok
 	state := true
 
-	if item, ok := maps["state"].(bool); ok {
-		state = item
+	if jsonType.State == false {
+		state = false
 	}
 
-	if rows, ok := maps["data"]; ok {
-		data = rows
+	if jsonType.Data != nil {
+		data = jsonType.Data
 	}
 
-	if item, ok := maps["code"].(int); ok {
-		code = item
+	if jsonType.Code != 0 {
+		code = jsonType.Code
 		msg = GetMsg(code)
+	}
+
+	if jsonType.Msg != "" {
+		msg = jsonType.Msg
 	}
 
 	c.JSON(SUCCESS, gin.H{

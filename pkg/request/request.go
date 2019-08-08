@@ -7,10 +7,10 @@ import (
 	"github.com/ziyeziye/framework/pkg/utli"
 )
 
-func GetParam(c *gin.Context, key, ext string) string {
+func GetParam(c *gin.Context, key, ext string) utli.StrTo {
 	v := c.Param(key + ext)
 	v = php.StrReplace(ext, "", v, 1)
-	return v
+	return utli.StrTo(v)
 }
 
 func GetPage(c *gin.Context, maps map[string]interface{}, must bool) map[string]interface{} {
