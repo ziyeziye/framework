@@ -41,7 +41,7 @@ func IsChineseChar(str string) bool {
 }
 
 // snake string, XxYy to xx_yy , XxYY to xx_yy
-func snakeString(s string) string {
+func SnakeString(s string) string {
 	data := make([]byte, 0, len(s)*2)
 	j := false
 	num := len(s)
@@ -59,7 +59,7 @@ func snakeString(s string) string {
 }
 
 // camel string, xx_yy to XxYy
-func camelString(s string) string {
+func CamelString(s string) string {
 	data := make([]byte, 0, len(s))
 	j := false
 	k := false

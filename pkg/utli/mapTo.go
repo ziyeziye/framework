@@ -21,7 +21,7 @@ func Json2Map(jsonBuf string) (map[string]interface{}, error) {
 //用map填充结构
 func Map2Struct(data map[string]interface{}, obj interface{}) error {
 	for k, v := range data {
-		k = camelString(k)
+		k = CamelString(k)
 		//k = strings.ToUpper(k[0:1]) + k[1:]
 		err := SetField(obj, k, v)
 		if err != nil {
