@@ -8,11 +8,11 @@ import (
 )
 
 var db *gorm.DB
-
+var tablePrefix string
 func init() {
 	var (
 		err                                               error
-		dbType, dbName, user, password, host, tablePrefix string
+		dbType, dbName, user, password, host string
 	)
 
 	dbType = config.GetDatabase("TYPE").String()
@@ -43,9 +43,9 @@ func init() {
 		db.SetLogger(sqlLogger)
 	}
 
-	gorm.DefaultTableNameHandler = func(db *gorm.DB, defaultTableName string) string {
-		return tablePrefix + defaultTableName
-	}
+	//gorm.DefaultTableNameHandler = func(db *gorm.DB, defaultTableName string) string {
+	//	return tablePrefix + defaultTableName
+	//}
 
 	db.SingularTable(true)
 	db.DB().SetMaxIdleConns(10)
