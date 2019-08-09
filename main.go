@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/ziyeziye/framework/pkg/config"
-	"github.com/ziyeziye/framework/routers"
+	"framework/pkg/config"
+	"framework/routers"
 	"net/http"
 )
 

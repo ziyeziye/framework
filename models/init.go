@@ -2,10 +2,9 @@ package models
 
 import (
 	"fmt"
+	"framework/pkg/config"
+	"framework/pkg/logger"
 	"github.com/jinzhu/gorm"
-	"github.com/ziyeziye/framework/pkg/config"
-	"github.com/ziyeziye/framework/pkg/logger"
-	"log"
 )
 
 var db *gorm.DB
@@ -30,7 +29,7 @@ func init() {
 		dbName))
 
 	if err != nil {
-		log.Println(err)
+		fmt.Println(err)
 	}
 
 	db.LogMode(true)

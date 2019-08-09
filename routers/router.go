@@ -1,9 +1,9 @@
 package routers
 
 import (
+	"framework/pkg/config"
+	"framework/pkg/session"
 	"github.com/gin-gonic/gin"
-	"github.com/ziyeziye/framework/pkg/config"
-	"github.com/ziyeziye/framework/pkg/session"
 	"html/template"
 )
 

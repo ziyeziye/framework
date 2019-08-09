@@ -2,9 +2,9 @@ package logger
 
 import (
 	"fmt"
+	"framework/pkg/config"
+	"framework/pkg/utli"
 	"github.com/openset/php2go/php"
-	"github.com/ziyeziye/framework/pkg/config"
-	"github.com/ziyeziye/framework/pkg/utli"
 	"log"
 	"os"
 	"time"

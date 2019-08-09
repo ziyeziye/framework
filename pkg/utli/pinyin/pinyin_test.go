@@ -1,33 +1,33 @@
 package pinyin
 
 import (
-	"github.com/ziyeziye/framework/pkg/utli"
+	//"framework/pkg/utli"
 	"testing"
 )
 
 func TestConvert(t *testing.T) {
-	str, err := utli.Char2Pinyin("我是中国人").Split("").Mode(utli.InitialsInCapitals).Convert()
+	str, err := Char2Pinyin("我是中国人").Split("").Mode(InitialsInCapitals).Convert()
 	if err != nil {
 		t.Error(err)
 	} else {
 		t.Log(str)
 	}
 
-	str, err = utli.Char2Pinyin("我是中国人").Split(" ").Mode(utli.WithoutTone).Convert()
+	str, err = Char2Pinyin("我是中国人").Split(" ").Mode(WithoutTone).Convert()
 	if err != nil {
 		t.Error(err)
 	} else {
 		t.Log(str)
 	}
 
-	str, err = utli.Char2Pinyin("我是中国人").Split("-").Mode(utli.Tone).Convert()
+	str, err = Char2Pinyin("我是中国人").Split("-").Mode(Tone).Convert()
 	if err != nil {
 		t.Error(err)
 	} else {
 		t.Log(str)
 	}
 
-	str, err = utli.Char2Pinyin("我是中国人").Convert()
+	str, err = Char2Pinyin("我是中国人").Convert()
 	if err != nil {
 		t.Error(err)
 	} else {

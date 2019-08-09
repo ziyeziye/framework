@@ -2,7 +2,7 @@ package pinyin
 
 import (
 	"bufio"
-	"github.com/ziyeziye/framework/pkg/utli"
+	"framework/pkg/utli"
 	"io"
 	"net/http"
 	"os"
@@ -125,7 +125,7 @@ var isWordReg = regexp.MustCompile(`([a-zA-Z0-9]+)`)
 
 func (py *pinyin) Convert() (string, error) {
 	if !initialized {
-		return "", utli.ErrInitialize
+		return "", ErrInitialize
 	}
 
 	//py.origin = strings.ReplaceAll(py.origin, " ", py.split)
@@ -149,7 +149,7 @@ func (py *pinyin) Convert() (string, error) {
 
 func getPinyin(hanzi rune, mode Mode) (string, error) {
 	if !initialized {
-		return "", utli.ErrInitialize
+		return "", ErrInitialize
 	}
 	switch mode {
 	case Tone:
