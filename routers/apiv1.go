@@ -5,6 +5,16 @@ import (
 )
 
 func apiv1(r *gin.Engine) {
+	group := r.Group("")
+	{
+		group.GET("/test", func(c *gin.Context) {
+			c.JSON(200,map[string]interface{}{
+				"name":"framework",
+				"pkg" : "golang gin gorm",
+			})
+		})
+		//api.ConfigRouter(group)
+	}
 	//apiv1 := r.Group("/api/v1")
 	//{
 	//获取标签列表
