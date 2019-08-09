@@ -4,6 +4,7 @@ import (
 	"framework/pkg/config"
 	"framework/pkg/session"
 	"github.com/gin-gonic/gin"
+	"html/template"
 )
 
 func InitRouter() (r *gin.Engine) {
@@ -16,11 +17,11 @@ func InitRouter() (r *gin.Engine) {
 
 	gin.SetMode(config.RumMode)
 	//注册模板方法
-	//r.SetFuncMap(template.FuncMap{
-	//	"splitBy":   splitBy,
-	//	"splitJson": splitJson,
-	//})
-	//r.LoadHTMLGlob(config.GetApp("VIEW_PATH").String())
+	r.SetFuncMap(template.FuncMap{
+		"splitBy":   splitBy,
+		"splitJson": splitJson,
+	})
+	r.LoadHTMLGlob(config.GetApp("VIEW_PATH").String())
 
 	//session
 	r.Use(session.CookieStorage(
@@ -29,6 +30,7 @@ func InitRouter() (r *gin.Engine) {
 	)
 
 	view(r)
+	apiRouter(r)
 	apiv1(r)
 	return
 }

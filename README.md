@@ -14,4 +14,11 @@ app
     ├── services        服务层/逻辑  
     ├── spider          爬虫  
     ├── test            测试文件  
-    └── view            视图模板  
+    └── view            视图模板
+
+执行
+go run main.go
+访问
+127.0.0.1:80 访问模板首页
+127.0.0.1:80/api/test 访问接口api/test
+

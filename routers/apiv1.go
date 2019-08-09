@@ -1,20 +1,24 @@
 package routers
 
 import (
+	"framework/api"
 	"github.com/gin-gonic/gin"
 )
 
-func apiv1(r *gin.Engine) {
+func apiRouter(r *gin.Engine)  {
 	group := r.Group("")
 	{
-		group.GET("/test", func(c *gin.Context) {
-			c.JSON(200,map[string]interface{}{
-				"name":"framework",
-				"pkg" : "golang gin gorm",
-			})
-		})
-		//api.ConfigRouter(group)
+		//group.GET("/api/test", func(c *gin.Context) {
+		//	c.JSON(200,map[string]interface{}{
+		//		"name":"framework",
+		//		"pkg" : "golang gin gorm",
+		//	})
+		//})
+		api.ConfigRouter(group)
 	}
+}
+
+func apiv1(r *gin.Engine) {
 	//apiv1 := r.Group("/api/v1")
 	//{
 	//获取标签列表
