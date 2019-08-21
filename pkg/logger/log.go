@@ -22,11 +22,11 @@ var (
 )
 
 const (
-	DEBUG Level = iota
-	INFO
-	WARNING
-	ERROR
-	FATAL
+	debug Level = iota
+	info
+	warning
+	err
+	fatal
 )
 
 func init() {
@@ -37,27 +37,27 @@ func init() {
 }
 
 func Debug(v ...interface{}) {
-	setPrefix(DEBUG)
+	setPrefix(debug)
 	logger.Println(v)
 }
 
 func Info(v ...interface{}) {
-	setPrefix(INFO)
+	setPrefix(info)
 	logger.Println(v)
 }
 
 func Warn(v ...interface{}) {
-	setPrefix(WARNING)
+	setPrefix(warning)
 	logger.Println(v)
 }
 
 func Error(v ...interface{}) {
-	setPrefix(ERROR)
+	setPrefix(err)
 	logger.Println(v)
 }
 
 func Fatal(v ...interface{}) {
-	setPrefix(FATAL)
+	setPrefix(fatal)
 	logger.Fatalln(v)
 }
 

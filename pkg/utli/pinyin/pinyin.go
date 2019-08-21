@@ -84,7 +84,7 @@ func init() {
 func getFileContent() (io.ReadCloser, error) {
 	var path = ""
 	var ok bool
-	if path, ok = utli.RuntimeFilePath(); ok {
+	if path, ok = utli.CurrentFilePath(); ok {
 		path = utli.Dirname(path)
 	}
 

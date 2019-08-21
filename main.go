@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"framework/pkg/config"
+	"framework/config"
 	"framework/routers"
 	"net/http"
 )

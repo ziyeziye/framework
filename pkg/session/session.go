@@ -27,7 +27,7 @@ func (r RedisCfg) Default() RedisCfg {
 	}
 }
 
-func RedisStorage(name, secret string, cfg RedisCfg) gin.HandlerFunc {
+func RedisStorage(name string, cfg RedisCfg) gin.HandlerFunc {
 	//config = 10, "tcp", "localhost:6379", "", []byte("secret")
 	store, _ := redis.NewStore(
 		cfg.Size,

@@ -18,17 +18,19 @@ func Json2Map(jsonBuf string) (map[string]interface{}, error) {
 	return maps, nil
 }
 
-//用map填充结构
-func Map2Struct(data map[string]interface{}, obj interface{}) error {
-	for k, v := range data {
+func Struct2Map(obj interface{}) map[string]interface{} {
+	obj_v := reflect.ValueOf(obj)
+	v := obj_v.Elem()
+	typeOfType := v.Type()
+	var data = make(map[string]interface{})
+	for i := 0; i < v.NumField(); i++ {
+		field := v.Field(i)
+		k := typeOfType.Field(i).Name
 		k = CamelString(k)
-		//k = strings.ToUpper(k[0:1]) + k[1:]
-		err := SetField(obj, k, v)
-		if err != nil {
-			return err
-		}
+
+		data[k] = field.Interface()
 	}
-	return nil
+	return data
 }
 
 //用map的值替换结构的值

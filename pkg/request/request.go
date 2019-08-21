@@ -1,7 +1,7 @@
 package request
 
 import (
-	"framework/pkg/config"
+	"framework/config"
 	"framework/pkg/utli"
 	"github.com/gin-gonic/gin"
 	"github.com/openset/php2go/php"

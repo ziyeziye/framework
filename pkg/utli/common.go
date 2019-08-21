@@ -27,6 +27,11 @@ func TrimMust(str string) string {
 	return reg.ReplaceAllString(str, "")
 }
 
+// StrReplace - Replace all occurrences of the search string with the replacement string
+func StrReplace(s, old, new string, n int) string {
+	return strings.Replace(s, old, new, n)
+}
+
 /*
 判断字符串是否包含中文字符
 */

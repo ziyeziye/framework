@@ -33,7 +33,7 @@ func MkdirAll(dirPath string) {
 	}
 }
 
-func substr(s string, pos, length int) string {
+func Substr(s string, pos, length int) string {
 	runes := []rune(s)
 	l := pos + length
 	if l > len(runes) {
@@ -52,7 +52,7 @@ func Dirname(path string) string {
 	return dir
 }
 
-func RuntimeFilePath() (string, bool) {
+func CurrentFilePath() (string, bool) {
 	_, file, _, ok := runtime.Caller(1)
 	if !ok {
 		return "", false

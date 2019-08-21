@@ -2,16 +2,17 @@ package models
 
 import (
 	"fmt"
-	"framework/pkg/config"
+	"framework/config"
 	"framework/pkg/logger"
 	"github.com/jinzhu/gorm"
 )
 
 var db *gorm.DB
 var tablePrefix string
+
 func init() {
 	var (
-		err                                               error
+		err                                  error
 		dbType, dbName, user, password, host string
 	)
 

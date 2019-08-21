@@ -2,7 +2,7 @@ package logger
 
 import (
 	"fmt"
-	"framework/pkg/config"
+	"framework/config"
 	"framework/pkg/utli"
 	"github.com/openset/php2go/php"
 	"log"

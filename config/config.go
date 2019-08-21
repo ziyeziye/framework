@@ -1,6 +1,7 @@
 package config
 
 import (
+	"framework/pkg/utli"
 	"github.com/go-ini/ini"
 	"log"
 	"time"
@@ -21,7 +22,14 @@ var (
 
 func init() {
 	var err error
-	Config, err = ini.Load("conf/app.ini")
+
+	var confFile = "/app.ini"
+	if path, ok := utli.CurrentFilePath(); ok {
+		path = utli.Dirname(path)
+		confFile = path + confFile
+	}
+
+	Config, err = ini.Load(confFile)
 	if err != nil {
 		log.Fatalf("Fail to parse 'conf/app.ini': %v", err)
 	}
@@ -32,7 +40,7 @@ func init() {
 }
 
 func LoadBase() {
-	RumMode = Get("RUN_MODE").MustString("debug")
+	RumMode = Get("", "RUN_MODE").MustString("debug")
 }
 
 func LoadServer() {
@@ -49,26 +57,26 @@ func LoadApp() {
 	PageSize = GetApp("PAGE_SIZE").MustInt(10)
 }
 
-func Get(name string) *ini.Key {
-	return Config.Section("").Key(name)
+func Get(section, name string) *ini.Key {
+	return Config.Section(section).Key(name)
 }
 
 func GetServer(name string) *ini.Key {
-	section := getSec("server")
+	section := GetSec("server")
 	return section.Key(name)
 }
 
 func GetApp(name string) *ini.Key {
-	section := getSec("app")
+	section := GetSec("app")
 	return section.Key(name)
 }
 
 func GetDatabase(name string) *ini.Key {
-	section := getSec("database")
+	section := GetSec("database")
 	return section.Key(name)
 }
 
-func getSec(sec string) *ini.Section {
+func GetSec(sec string) *ini.Section {
 	section, err := Config.GetSection(sec)
 	if err != nil {
 		log.Fatalf("Fail to get section '%s': %v", sec, err)
