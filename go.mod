@@ -11,4 +11,5 @@ require (
 	github.com/openset/php2go v0.0.0-20190724040015-1e42fa635fa9
 	github.com/smartystreets/goconvey v0.0.0-20190731233626-505e41936337 // indirect
 	gopkg.in/ini.v1 v1.46.0 // indirect
+	gopkg.in/redis.v5 v5.2.9
 )
