@@ -16,6 +16,9 @@ app
     ├── test            测试文件  
     └── view            视图模板
 
+Framework-gen  
+github.com/ziyeziye/framework-gen 是一个可以通过数据库生成对应framework的models,struct以及相应的restful api的工具。  
+  
 执行
 go run main.go
 访问
